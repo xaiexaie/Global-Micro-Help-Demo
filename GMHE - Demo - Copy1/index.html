@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Global Micro-Help — Demo</title>
+  <meta name="description" content="A lightweight, offline-capable micro-help exchange (prototype)." />
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Global Micro-Help (Demo)</h1>
+    <p class="tagline">Post tiny needs or offers claim, help, and earn time credits.</p>
+  </header>
+
+  <main>
+    <section id="post-form" aria-labelledby="form-title">
+      <h2 id="form-title">Post a Need or Offer</h2>
+      <form id="create" autocomplete="off">
+        <label>
+          Type
+          <select id="type">
+            <option value="need">Need</option>
+            <option value="offer">Offer</option>
+          </select>
+        </label>
+
+        <label>
+          Title
+          <input id="title" required />
+        </label>
+
+        <label>
+          Description
+          <textarea id="description" rows="3"></textarea>
+        </label>
+
+        <label>
+          Tags (comma separated)
+          <input id="tags" placeholder="eg: translation, groceries" />
+        </label>
+
+        <label>
+          Location (optional)
+          <input id="location" placeholder="City, country or 'remote'" />
+        </label>
+
+        <label>
+          Estimated time (minutes)
+          <input id="duration" type="number" min="1" value="30" />
+        </label>
+
+        <button type="submit">Post</button>
+      </form>
+    </section>
+
+    <section id="feed" aria-labelledby="feed-title">
+      <h2 id="feed-title">Open Micro-Tasks</h2>
+      <div id="filters">
+        <input id="search" placeholder="Search title, tags, or location" />
+        <label><input id="filter-offers" type="checkbox" /> Show offers only</label>
+      </div>
+      <ul id="posts" class="list" aria-live="polite"></ul>
+    </section>
+
+    <section id="wallet" aria-labelledby="wallet-title">
+      <h2 id="wallet-title">Your Profile</h2>
+      <p id="credits">Time credits: <strong>0</strong></p>
+      <p id="reputation">Reputation: <strong>0</strong></p>
+      <button id="export">Export Data</button>
+    </section>
+  </main>
+
+  <footer>
+    <small>Offline-capable PWA demo • Service worker caches assets for fast loads.</small>
+  </footer>
+
+  <script defer src="app.js"></script>
+</body>
+</html>
